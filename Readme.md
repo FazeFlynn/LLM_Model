@@ -342,7 +342,7 @@ I build AI-powered products and intelligent systems. This project was built to g
 
 ## License
 
-MIT — free to use, modify, and build on with attribution.
+MIT — free to use, modify, and build on with attribution. This project was an independent research project to understand how LLMs are really trained and tuned.
 
 ---
 
