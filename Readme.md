@@ -128,8 +128,6 @@ config = ckpt["model_config"]
 
 
 # ── Model definition ───────────────────────────────────────────────────────────
-# FIX: model classes were missing — the original cell had a comment saying
-# "paste model class here" but never actually included the code.
 
 class RMSNorm(nn.Module):
     def __init__(self, dim, eps=1e-6):
@@ -210,7 +208,6 @@ class GPT(nn.Module):
 # ── Load weights ───────────────────────────────────────────────────────────────
 model = GPT(config).to(device)
 
-# Remap keys saved under the "transformer.*" / "h.*" naming convention
 state_dict = ckpt["model_state_dict"]
 renamed    = {}
 for k, v in state_dict.items():
@@ -245,11 +242,7 @@ def ask(question, max_new=150, temperature=0.8, top_k=50):
     x      = torch.tensor([ids], dtype=torch.long, device=device)
 
     with torch.no_grad():
-        for _ in range(max_new):
-            # FIX: model(x) returns a (B, T, vocab_size) tensor directly.
-            # The original code did model(x)[0], which indexed the batch dim
-            # and returned a 2D (T, vocab_size) tensor, then tried to index
-            # it with [:, -1, :] (3 dims) → IndexError.
+        for _ in range(max_new):        
             logits = model(x[:, -2048:])          # (1, T, vocab_size)
             logits = logits[:, -1, :] / temperature  # (1, vocab_size)
 
