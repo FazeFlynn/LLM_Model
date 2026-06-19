@@ -2,7 +2,7 @@
 ═══════════════════════════════════════════════════════════════════════════════
 LLM 350M — OPTIMIZED TRAINING SCRIPT (A100 80GB)
 ═══════════════════════════════════════════════════════════════════════════════
-Key optimizations over original:
+Key optimizations techniques used:
 1. Chunked cross-entropy (custom autograd): never materializes full (B*T, V) logits
    → saves ~18-20 GB peak memory during backward
 2. Larger micro_batch_size=32, fewer grad_accum_steps=17 (was 24/22)
@@ -12,7 +12,7 @@ Key optimizations over original:
 4. Data kept as uint16 in RAM (4x smaller than int64)
 5. MFU (Model FLOPs Utilization) tracking for performance analysis
 ═══════════════════════════════════════════════════════════════════════════════
-Expected: ~75-90K tok/s on A100 80GB  (vs ~62.5K before)
+Expected: ~75-90K tok/s on A100 80GB
 Peak memory: ~68-72 GB (vs ~76.5 GB before, enabling larger batch)
 ═══════════════════════════════════════════════════════════════════════════════
 """
