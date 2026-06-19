@@ -18,6 +18,7 @@
 ## 📦 Model on HuggingFace
 
 > **[🤗 FazeFlynn/my-350M-LLM](https://huggingface.co/FazeFlynn/my-350M-LLM)**
+> **[Read W&B Report and Graphs](https://api.wandb.ai/links/faiz-14a-self/wlfu98yb)**
 
 Download the model, read the full model card, and run inference directly from HuggingFace.
 
