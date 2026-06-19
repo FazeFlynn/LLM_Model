@@ -9,7 +9,7 @@
 [![Python](https://img.shields.io/badge/Python-3.11-blue)](https://python.org)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.4-orange)](https://pytorch.org)
 
-*By [Islam Kathat](https://github.com/FazeFlynn) — AI/ML Engineer & Researcher + Full Stack Developer*
+*By [Islam Kathat](https://github.com/FazeFlynn) — ML Engineer & AI Researcher + Full Stack Developer*
 
 </div>
 
